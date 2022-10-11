@@ -1,0 +1,77 @@
+:root {
+    --dgclr: #3B4856;
+    --wtclr: #ffffff;
+    --blclr: #00a3cc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: bold;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 700px;
+    min-height: 400px;
+    background: var(--dgclr);
+    border-radius: 5px;
+    padding: 40px 30px;
+}
+
+.container .title {
+    color: var(--wtclr);
+    font-weight: 800;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.container .form .input-group {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.container .form .input-group input {
+    width: 308px;
+    height: 100%;
+    color: var(--wtclr);
+    background-color: var(--dgclr);
+    padding: 15px 20px;
+    font-size: 20px;
+    border-style: solid;
+    border-color: var(--blclr);
+    border-radius: 25px;
+}
+
+.container .form .input-group .first{
+    margin-right: 20px;
+}
+
+.container .form .input-group .btn {
+    width: 100%;
+    height: 100%;
+    background-color: var(--blclr);
+    font-size: 20px;
+    border: 3px;
+    border-radius: 25px;
+}
+
+.container .form .login-register-text {
+    color: var(--wtclr);
+}
+
+.container .form .login-register-text a {
+    text-decoration: none;
+    color: var(--blclr);
+}
