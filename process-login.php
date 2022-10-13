@@ -21,10 +21,10 @@ if ($result->num_rows == 0) {
     $_SESSION["firstname"] = $user["firstname"];
     $_SESSION["lastname"] = $user["lastname"];
     if($user['role'] == 'regular'){
-        header('Location: bestel.php');
+        header('Location: .php');
     }
     if($user['role'] == 'admin'){
-        header('Location: start.php');
+        header('Location: .php');
     }
 }
 
