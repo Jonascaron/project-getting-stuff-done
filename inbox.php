@@ -47,7 +47,7 @@ $inboxes = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td><?php echo $inbox["deadline"] ?></td>
                     <td>
                         <form method="post" action="process_choice.php">
-                            <input type="hidden" name="" value="<?php echo $inbox["id"] ?>">
+                            <input type="hidden" name="id" value="<?php echo $inbox["id"] ?>">
                             <select id="select" name="select">
                                 <option value="" disabled selected> choose option</option>
                                 <option value="Projects">Projects</option>

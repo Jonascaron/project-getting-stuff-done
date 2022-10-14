@@ -15,6 +15,15 @@
     <nav class="navbar">
         <ul>
             <li>
+                <a href="#">home</a>
+            </li>
+            <li>
+                <a href="inbox.php">inbox</a>
+            </li>
+            <li>
+                <a href="login.php">login</a>
+            </li>
+            <li>
                 <a href="login.php">login</a>
             </li>
         </ul>

@@ -5,10 +5,8 @@ require 'database.php';
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-//de sql query
 $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 
-//hier wordt de query uitgevoerd met de database
 $result = mysqli_query($conn, $sql);
 
 $user = mysqli_fetch_assoc($result);
@@ -20,8 +18,9 @@ if ($result->num_rows == 0) {
     $_SESSION["email"] = $user["email"];
     $_SESSION["firstname"] = $user["firstname"];
     $_SESSION["lastname"] = $user["lastname"];
+    $_SESSION["role"] = $user["role"];
     if($user['role'] == 'regular'){
-        header('Location: .php');
+        header('Location: inbox.php');
     }
     if($user['role'] == 'admin'){
         header('Location: .php');

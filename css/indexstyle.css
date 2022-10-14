@@ -8,6 +8,8 @@
 
 .navbar ul li {
     list-style: none;
+    margin-left: 10px;
+    color: aqua;
 }
 .navbar ul li a {
     text-decoration: none;
