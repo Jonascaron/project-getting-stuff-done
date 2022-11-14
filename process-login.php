@@ -15,6 +15,7 @@ if ($result->num_rows == 0) {
 } else {
     session_start();
     $_SESSION["logedin"] = true;
+    $_SESSION["id"] = $user["id"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["firstname"] = $user["firstname"];
     $_SESSION["lastname"] = $user["lastname"];
@@ -23,7 +24,7 @@ if ($result->num_rows == 0) {
         header('Location: inbox.php');
     }
     if($user['role'] == 'admin'){
-        header('Location: .php');
+        header('Location: admin.php');
     }
 }
 

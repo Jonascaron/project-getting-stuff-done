@@ -21,10 +21,19 @@
                 <a href="inbox.php">inbox</a>
             </li>
             <li>
-                <a href="login.php">login</a>
+                <a href="waiting_for.php">waiting_for</a>
+            </li>
+            <li>
+                <a href="projects.php">projects</a>
+            </li>
+            <li>
+                <a href="calender.php">calender</a>
             </li>
             <li>
                 <a href="login.php">login</a>
+            </li>
+            <li>
+                <a href="logout.php">logout</a>
             </li>
         </ul>
     </nav>

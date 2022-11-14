@@ -9,28 +9,25 @@ if (!isset($_SESSION["logedin"])) {
 require 'database.php';
 $user_id = $_SESSION["id"];
 
-$sql = "SELECT * FROM inbox WHERE user_id = $user_id";
+$sql = "SELECT * FROM waiting_for WHERE user_id = $user_id";
 
 $result = mysqli_query($conn, $sql);
 
-$inboxes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$waiting_for = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/inboxstyle.css">
-    <link rel="stylesheet" href="css/buttonstyle.css">
+    <link rel="stylesheet" href="css/waiting_forstyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
     <title>Document</title>
 </head>
-
 <body>
     <nav class="navbar">
         <ul>
@@ -38,10 +35,10 @@ $inboxes = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <a href="index.php">home</a>
             </li>
             <li>
-                <a href="#">inbox</a>
+                <a href="inbox.php">inbox</a>
             </li>
             <li>
-                <a href="waiting_for.php">waiting_for</a>
+                <a href="#">waiting_for</a>
             </li>
             <li>
                 <a href="projects.php">projects</a>
@@ -57,37 +54,26 @@ $inboxes = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </li>
         </ul>
     </nav>
-    <a class="button" href="toevoegen.php">toevoegen</a>
     <table class="table table-dark">
         <thead>
             <tr>
                 <th>name</th>
+                <th>wait for</th>
                 <th>creation_date</th>
-                <th>deadline</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($inboxes as $inbox) : ?>
+            <?php foreach ($waiting_for as $wait_for) : ?>
                 <tr>
-                    <td><?php echo $inbox["name"] ?></td>
-                    <td><?php echo $inbox["creation_date"] ?></td>
-                    <td><?php echo $inbox["deadline"] ?></td>
-                    <td>
-                        <form method="post" action="process_choice.php">
-                            <input type="hidden" name="id" value="<?php echo $inbox["id"] ?>">
-                            <select id="select" name="select">
-                                <option value="" disabled selected> choose option</option>
-                                <option value="Projects">Projects</option>
-                                <option value="Waiting_For">Waiting_For</option>
-                            </select>
-                            <input type="submit" name="submit" value="Add">
-                        </form>
-                    </td>
-                    <td><a href="inbox_delete.php?id=<?php echo $inbox["id"] ?>">delete</a></td>
+                    <td><?php echo $wait_for["name"] ?></td>
+                    <td><?php echo $wait_for["wait_for"] ?></td>
+                    <td><?php echo $wait_for["creation_date"] ?></td>
+                    <td><a href="waiting_for_delete.php?inbox_id=<?php echo $wait_for["inbox_id"] ?>">delete</a></td>
+                    <td><a href="waiting_for_update.php?inbox_id=<?php echo $wait_for["inbox_id"] ?>">update</a></td>
+                    <td><a href="waiting_for_show.php?inbox_id=<?php echo $wait_for["inbox_id"] ?>">show</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </body>
-
 </html>
